@@ -52,6 +52,11 @@ TEST_F(mock_ptr_executionTest, asteriskOperatorShouldReturnReferenceToUnderlying
     (*mockPtr).execute();
 }
 
+TEST_F(mock_ptr_executionTest, getShouldReturnAddressToUnderlyingObject) {
+    EXPECT_EQ(mockPtr.get(), &*mockPtr);
+    mockPtr.get()->execute();
+}
+
 TEST_F(mock_ptr_executionTest, uniquePointerShouldContainRawPointerFromMockPtr) {
     mockPtr.make_unique()->execute();
 }
