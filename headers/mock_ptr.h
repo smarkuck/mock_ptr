@@ -19,8 +19,12 @@ public:
         return std::unique_ptr<T>(rawPointer);
     }
 
-    T& operator*() {
+    T& operator*() const {
         return *rawPointer;
+    }
+
+    T* get() const {
+        return rawPointer;
     }
 
 private:
